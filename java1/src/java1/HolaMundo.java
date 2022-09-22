@@ -2,8 +2,8 @@ package java1;
 
 public class HolaMundo {
 	
-	public static void main(String[] args) {
-		
+	
+	private static void iniciacion() {
 		int numero = 10;
 		int numero1 = 5;
 		int numero_2 = 8;
@@ -16,6 +16,7 @@ public class HolaMundo {
 		String cadenaA = "a";
 		String cadenaVacia = "";
 		String cadena2 = "Esta es una segunda cadena";
+		final double IVA = 0.21;  // Así definimos una constante
 		
 		
 		// Este es mi primer programa
@@ -70,7 +71,52 @@ public class HolaMundo {
 		int tres = 3;
 		double resultado4 = tres / (double)dos;  // 1.5
 		System.out.println(resultado4);
+		//dos = 4; esto se puede hacer pq no es constante
+		// IVA = 25; esto NO se puede hacer pq es constante
+		int precio = 100; 
+		System.out.println("La ropa cuesta: " + precio + "\nIVA:" 
+		+ precio* IVA + "\nTOTAL: " + (precio + (precio*IVA)));
+		// Preincremento, Postincremento, predecremento, postdecremento
+		int valor = 10;
+		valor++;  // 11  valor = valor + 1;  valor += 1; Postincremento
+		valor--;  // 10  Postdecremento
+		System.out.println(valor++); //10
+		System.out.println(valor); // 11
+		System.out.println(++valor); // 12  Preincremento
+		System.out.println(valor);  // 12
+		System.out.println(--valor); // 11  Predecremento
+		System.out.println(valor);  // 11
+		valor = 10;
+		System.out.println(valor++ + ++valor + valor-- - --valor); // 10 + 12 + 12 - 10 = 24
+		System.out.println(valor); // 10
+		int prefijo = 34;
+		int telefono = 666666666;
+		System.out.println(prefijo + telefono); // 666666670
+		//Conversiones
+		System.out.println("" + prefijo + telefono); // 34666666666. Implícita
+		System.out.println(String.valueOf(prefijo) + telefono); // 34666666666
+		System.out.println(String.valueOf(prefijo) + String.valueOf(telefono)); // 34666666666
+		System.out.println(Integer.toString(prefijo) + telefono); // 34666666666
 
+		String valor1 = "10";
+		
+	}
+	
+	private static void ejercicio1() {
+		int numero = 5;
+		System.out.println(numero);
+	}
+	
+	private static void ejercicio2() {
+		int numero = 8;
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		iniciacion();
+		//ejercicio1();
+		
 	}
 	
 }
