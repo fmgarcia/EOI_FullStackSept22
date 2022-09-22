@@ -37,7 +37,40 @@ public class HolaMundo {
 		System.out.println(cadena + " " + cadena2);
 		System.out.println(cadena + '\n' + cadena2);
 		System.out.println(cadena + '\t' + cadena2);
-		
+		System.out.println("La suma da: " + numero1 + numero);  // La suma da: 510
+		System.out.println("La suma da: " + (numero1 + numero));  // La suma da: 15
+		int resto = 10 % 3; // resto vale 1 (módulo)
+		System.out.println(resto); // 1
+		numero += 3;  // 13
+		System.out.println(numero);
+		numero -= 3;  // 10
+		System.out.println(numero);
+		numero *= 3;  // 30
+		System.out.println(numero);
+		numero /= 4;  // ??? -> 7
+		System.out.println(numero);
+		double division = numero / 4.0;
+		System.out.println(division);
+		double decimales1 = 3.4, decimales2 = 2.5;
+		int divisionDecimales = (int) (decimales1 + decimales2);  // 5
+		System.out.println(divisionDecimales);
+		double divisionDecimales2 = (int) (decimales1 + decimales2);  // 5.0
+		System.out.println(divisionDecimales2);
+		double divisionDecimales3 = (int) decimales1 + decimales2;  // 5.5
+		System.out.println(divisionDecimales3);
+		double divisionDecimales4 = (int) decimales1 + (int) decimales2;  // 5.0
+		System.out.println(divisionDecimales4);
+		double resultado = 7+4*2-5.0; // 10.0
+		System.out.println(resultado);
+		double resultado2 = (7+4)*(2-5.0); // -33.0
+		System.out.println(resultado2);
+		double resultado3 = (7+4)/(2.0); // 5.5
+		System.out.println(resultado3);
+		int dos = 2;
+		int tres = 3;
+		double resultado4 = tres / (double)dos;  // 1.5
+		System.out.println(resultado4);
+
 	}
 	
 }
