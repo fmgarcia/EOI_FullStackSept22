@@ -1,5 +1,7 @@
 package java1;
 
+import java.util.Scanner;
+
 public class HolaMundo {
 	
 	
@@ -89,6 +91,13 @@ public class HolaMundo {
 		valor = 10;
 		System.out.println(valor++ + ++valor + valor-- - --valor); // 10 + 12 + 12 - 10 = 24
 		System.out.println(valor); // 10
+		
+		
+	}
+	
+	
+	private static void ejemplosConversiones() {
+		Scanner sc = new Scanner(System.in);
 		int prefijo = 34;
 		int telefono = 666666666;
 		System.out.println(prefijo + telefono); // 666666670
@@ -97,26 +106,56 @@ public class HolaMundo {
 		System.out.println(String.valueOf(prefijo) + telefono); // 34666666666
 		System.out.println(String.valueOf(prefijo) + String.valueOf(telefono)); // 34666666666
 		System.out.println(Integer.toString(prefijo) + telefono); // 34666666666
-
-		String valor1 = "10";
 		
+		System.out.println("Introduzca el valor 1: ");
+		String valor1 = sc.nextLine();
+		valor1 = valor1.replace(',', '.');
+		valor1 = valor1.trim();  // Quita los espacios por delante y por detrás
+		System.out.println("El número que usted introdujo más 5 da: " + (valor1 + 5));  //105
+		//System.out.println("El número que usted introdujo más 5 da: " + (Integer.parseInt(valor1) + 5));  //15
+		//System.out.println("El número que usted introdujo más 5 da: " + (Integer.valueOf(valor1) + 5));  //15
+		System.out.println("El número que usted introdujo más 5 da: " + (Double.parseDouble(valor1)  + 5));  //15
+		
+		sc.close();
 	}
 	
 	private static void ejercicio1() {
-		int numero = 5;
-		System.out.println(numero);
+		System.out.println("La suma es: " + (36+27));
 	}
 	
-	private static void ejercicio2() {
-		int numero = 8;
+	private static void ejercicio4() {
+		double num1 = 1.0;
+		double num2 = 2.0;
+		double num3 = 3.0;
+		double num4 = 4.0;
+		/*System.out.print(num1);
+		System.out.print(num2);
+		System.out.print(num3);
+		System.out.println(num4);		
+		System.out.println(((num1+num2)*num3)/num4);*/
+		System.out.println(""+num1+num2+num3+num4);
+		
+	}
+	
+	private static void ejercicio5() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduzca un número: ");
+		int N = sc.nextInt();
+		System.out.println("El valor de inicial de N es: " + N);
+		N += 77;  // 78
+		System.out.println("El valor incrementado en 77 es: " + N);
+		
+		sc.close();
 	}
 	
 	
 	public static void main(String[] args) {
 		
-		iniciacion();
+		//iniciacion();
 		//ejercicio1();
-		
+		//ejemplosConversiones();
+		ejercicio4();
+		//ejercicio5();
 	}
 	
 }
