@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class Ejercicios1 {
 
-	public static void apartado1() {
-		int n1 = 30, n2 = 5;
+	public static void apartado2() {
+		int n1 = 15, n2 = 4;
 		
 		System.out.println(n1 + " + " + n2 + " = " + (n1 + n2));
 		System.out.println(n1 + " - " + n2 + " = " + (n1 - n2));
@@ -15,12 +15,24 @@ public class Ejercicios1 {
 		System.out.println(n1 + " % " + n2 + " = " + (n1 % n2));
 	}
 	
-	public static void apartado2() {
+	public static void apartado3() {
 		int n1 = 4, n2 = 4;
 		
 		System.out.println(n1 + " es menor que " + n2 + ": " + (n1 < n2));
 		System.out.println(n1 + " es igual que " + n2 + ": " + (n1 == n2));
 		System.out.println(n1 + " es mayor o igual que " + n2 + ": " + (n1 >= n2));
+	}
+	
+	public static void apartado4() {
+		double num1 = 1.0;
+		double num2 = 2.0;
+		double num3 = 3.0;
+		double num4 = 4.0;
+		System.out.print(num1);
+		System.out.print(num2);
+		System.out.print(num3);
+		System.out.println(num4);
+		System.out.println(((num1+num2)*num3)/num4);
 	}
 	
 	public static void apartado7() {
@@ -108,6 +120,7 @@ public class Ejercicios1 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 //		apartado1();
 //		apartado2();
+		apartado4();
 //		apartado7();
 //		apartado10();
 //		apartado11();
