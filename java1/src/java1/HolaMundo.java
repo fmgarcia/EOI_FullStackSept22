@@ -148,6 +148,10 @@ public class HolaMundo {
 		sc.close();
 	}
 	
+	private static void ejercicio6() {
+		
+	}
+	
 	
 	public static void main(String[] args) {
 		
