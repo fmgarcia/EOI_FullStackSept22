@@ -146,19 +146,20 @@ public class HolaMundo {
 		System.out.println("El valor incrementado en 77 es: " + N);
 		
 		sc.close();
-	}
+	}	
+	
 	
 	private static void ejercicio6() {
-		
+		//hola
 	}
 	
 	
 	public static void main(String[] args) {
 		
-		//iniciacion();
-		//ejercicio1();
+		iniciacion();
+		ejercicio1();
 		//ejemplosConversiones();
-		ejercicio4();
+		//ejercicio4();
 		//ejercicio5();
 	}
 	
