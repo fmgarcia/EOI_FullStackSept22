@@ -153,14 +153,44 @@ public class HolaMundo {
 		//hola
 	}
 	
+	private static void ejemplosComparaciones() {
+		Scanner sc = new Scanner(System.in);
+		int a = 1;
+		int b = 2;
+		double c = 1.3;
+		String cad1 = "hola";  // Java es case-sensitive (distingue mayúsculas y minúsculas)
+		String cad2 = "Hola";
+		String login = "111X";
+		String password = "Fran1234";
+		System.out.println(a==c);  //????
+		//System.out.println(a==b);
+		//System.out.println(cad1==cad2);  // No debemos comparar las cadenas con ==
+		//System.out.println(cad1.equals(cad2)); // Forma correcta de comparar cadenas
+		//System.out.println(cad1.equals(cad2)); // Forma correcta de comparar cadenas
+		System.out.println("Introduzca su login: ");
+		String loginUsuario = sc.nextLine();
+		//System.out.println(login.toLowerCase().equals(loginUsuario.toLowerCase())); // 1ª alternativa
+		System.out.println(login.equalsIgnoreCase(loginUsuario)); // 2ª alternativa
+		System.out.println("Introduzca su password: ");
+		String passwordUsuario = sc.nextLine();
+		System.out.println(password.equals(passwordUsuario));
+		String datosUsuario = loginUsuario + " " + passwordUsuario;  // Concatenar cadenas
+		String datosUsuario2 = loginUsuario.concat(passwordUsuario); // Concatenar cadenas
+		System.out.println(datosUsuario);
+		System.out.println(datosUsuario2);
+		
+		
+	}
+	
 	
 	public static void main(String[] args) {
 		
-		iniciacion();
-		ejercicio1();
+		//iniciacion();
+		//ejercicio1();
 		//ejemplosConversiones();
 		//ejercicio4();
 		//ejercicio5();
+		ejemplosComparaciones();
 	}
 	
 }
