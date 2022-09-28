@@ -162,7 +162,7 @@ public class HolaMundo {
 		String cad2 = "Hola";
 		String login = "111X";
 		String password = "Fran1234";
-		System.out.println(a==c);  //????
+		//System.out.println(a==c);  //false
 		//System.out.println(a==b);
 		//System.out.println(cad1==cad2);  // No debemos comparar las cadenas con ==
 		//System.out.println(cad1.equals(cad2)); // Forma correcta de comparar cadenas
@@ -170,15 +170,53 @@ public class HolaMundo {
 		System.out.println("Introduzca su login: ");
 		String loginUsuario = sc.nextLine();
 		//System.out.println(login.toLowerCase().equals(loginUsuario.toLowerCase())); // 1ª alternativa
-		System.out.println(login.equalsIgnoreCase(loginUsuario)); // 2ª alternativa
+		//System.out.println(login.equalsIgnoreCase(loginUsuario)); // 2ª alternativa
 		System.out.println("Introduzca su password: ");
 		String passwordUsuario = sc.nextLine();
-		System.out.println(password.equals(passwordUsuario));
-		String datosUsuario = loginUsuario + " " + passwordUsuario;  // Concatenar cadenas
+		// System.out.println(password.equals(passwordUsuario));
+		/*String datosUsuario = loginUsuario + " " + passwordUsuario;  // Concatenar cadenas
 		String datosUsuario2 = loginUsuario.concat(passwordUsuario); // Concatenar cadenas
 		System.out.println(datosUsuario);
-		System.out.println(datosUsuario2);
+		System.out.println(datosUsuario2);*/
+		System.out.println(login.equalsIgnoreCase(loginUsuario) && password.equals(passwordUsuario));  // True si el usuario acierta login y password
+		System.out.println(login.equalsIgnoreCase(loginUsuario) || password.equals(passwordUsuario));  // True si el usuario acierta login y/o el password
+		System.out.println(login.equalsIgnoreCase(loginUsuario));  // Devuelve el resultado de la condición
+		System.out.println(!login.equalsIgnoreCase(loginUsuario));  // Devuelve lo contrario al resultado de la condición
 		
+	}
+	
+	private static void ejemplosFormateos() {
+		
+		String nombre1 = "Paco";
+		String nombre2 = "Anastasia";
+		double salario1 = 2300.24;
+		double salario2 = 24439.6;
+		// 1er intento
+		System.out.println(" NOMBRE SALARIO");
+		System.out.println("---------------------------");
+		System.out.println(" " + nombre1 + " " + salario1);
+		System.out.println(" " + nombre2 + " " + salario2);
+		// 2º intento
+		System.out.printf("%12s%14s\n", "NOMBRE", "SALARIO");
+		System.out.println("---------------------------");
+		System.out.printf("%12s%14f€\n", nombre1, salario1);
+		System.out.printf("%12s%14f€\n", nombre2, salario2);
+		// 3er intento
+		System.out.printf("%-12s%14s\n", "NOMBRE", "SALARIO");
+		System.out.println("---------------------------");
+		System.out.printf("%-12s%14f€\n", nombre1, salario1);
+		System.out.printf("%-12s%14f€\n", nombre2, salario2);
+		// 4º intento
+		System.out.printf("%12s%14s\n", "NOMBRE", "SALARIO");
+		System.out.println("---------------------------");
+		System.out.printf("%12s%14.2f€\n", nombre1, salario1);
+		System.out.printf("%12s%14.2f€\n", nombre2, salario2);
+		
+		// Fechas
+		int dia = 4;
+		int mes = 6;
+		int anyo = 2013;
+		System.out.printf("Fecha: %02d/%02d/%04d\n", dia, mes, anyo);
 		
 	}
 	
@@ -190,7 +228,8 @@ public class HolaMundo {
 		//ejemplosConversiones();
 		//ejercicio4();
 		//ejercicio5();
-		ejemplosComparaciones();
+		//ejemplosComparaciones();
+		//ejemplosFormateos();
 	}
 	
 }

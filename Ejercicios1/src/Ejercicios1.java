@@ -35,11 +35,36 @@ public class Ejercicios1 {
 		System.out.println(((num1+num2)*num3)/num4);
 	}
 	
+	public static void apartado6() {
+		int A = 1;
+		int B = 2;
+		int C = 3;
+		int D = 4;
+		final int auxA = A;
+		final int auxB = B;
+		final int auxC = C;
+		final int auxD = D;
+		System.out.print("Valores iniciales: A = " + A);
+		System.out.print(" B = " + B);
+		System.out.print(" C = " + C);
+		System.out.println(" D = " + D);
+		B=auxC; // B = 3
+		C=auxA; // C = 1
+		A=auxD; // A = 4
+		D=auxB; // D = 2
+		System.out.println("B toma el valor de C -> B = " + B);
+		System.out.println("C toma el valor de A -> C = " + C);
+		System.out.println("A toma el valor de D -> A = " + A);
+		System.out.println("D toma el valor de B -> D = " + D);
+		
+	}
+	
 	public static void apartado7() {
 		char c1 = 'b', c2 = 'k';
 		System.out.println("'" + c1 + "' tiene la posición " + (int)c1);
 		System.out.println("'" + c2 + "' tiene la posición " + (int)c2);
 		System.out.println("Diferencia entre '" + c1 + "' y '" + c2 + "': " + (c2 - c1));
+
 	}
 	
 	public static void apartado10() throws NumberFormatException, IOException {
@@ -120,7 +145,8 @@ public class Ejercicios1 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 //		apartado1();
 //		apartado2();
-		apartado4();
+//		apartado4();
+		apartado6();
 //		apartado7();
 //		apartado10();
 //		apartado11();
