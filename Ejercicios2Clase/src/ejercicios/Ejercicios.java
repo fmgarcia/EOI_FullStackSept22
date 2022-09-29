@@ -47,6 +47,12 @@ public class Ejercicios {
 		}
 		sc.close();
 	}
+	
+	public static void ejercicio13() {
+		for (int i = 20; i > 0; i--) {
+			System.out.println(i);
+		}
+	}
 
 	public static void main(String[] args) {
 		//ejercicio2();

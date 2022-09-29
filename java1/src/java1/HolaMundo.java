@@ -153,6 +153,27 @@ public class HolaMundo {
 		//hola
 	}
 	
+	private static void ejercicio14() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduzca su edad: ");
+		int edad = sc.nextInt();
+		System.out.println("Dentro de 15 años tendrá: " + (edad+15) + " años");
+	}
+	
+	private static void ejercicio14curiosidad() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduzca su edad: ");
+		int edad = sc.nextInt();
+		if(edad==1) {
+			System.out.println("Tiene usted 1 año");
+		} else {
+			System.out.println("Tiene usted " + edad + " años");
+		}
+		System.out.println(edad==1?"Tiene usted 1 año":"Tiene usted " + edad + " años");
+		System.out.println("Tiene usted " + edad + " año" + (edad!=1?"s":""));
+		
+	}
+	
 	private static void ejemplosComparaciones() {
 		Scanner sc = new Scanner(System.in);
 		int a = 1;
@@ -230,6 +251,7 @@ public class HolaMundo {
 		//ejercicio5();
 		//ejemplosComparaciones();
 		//ejemplosFormateos();
+		ejercicio14curiosidad();
 	}
 	
 }
