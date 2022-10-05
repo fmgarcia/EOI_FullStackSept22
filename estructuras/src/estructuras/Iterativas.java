@@ -1,5 +1,6 @@
 package estructuras;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Iterativas {
@@ -75,35 +76,74 @@ public class Iterativas {
 		while (total < 100) {
 			System.out.print("Escribe un número (acumulado: " + total + "): ");
 			int num = sc.nextInt();
-			total += num;  // total = total + num;
+			total += num; // total = total + num;
 		}
 		System.out.println("El total acumulado ha sido:" + total);
 	}
-	
-	
+
 	public static void whileIgualQueFor() {
 		for (int i = 0; i < 10; i++) {
 			System.out.println(i);
 		}
-		
+
 		int numero = 0;
-		while(numero < 10) {
+		while (numero < 10) {
 			System.out.println(numero);
 			numero++;
-		}		
+		}
 	}
-	
+
 	public static void whileIgualQueFor2() {
 		String oracion = "Hola mundo";
-		
+
 		for (int i = 0; i < oracion.length(); i++) {
 			System.out.println(oracion.charAt(i));
 		}
-		
+
 		int i = 0;
-		while(i < oracion.length()) {
+		while (i < oracion.length()) {
 			System.out.println(oracion.charAt(i));
 			i++;
+		}
+	}
+
+	public static void doWhile1() {
+		Scanner sc = new Scanner(System.in);
+		// Generamos número aleatorio entre 1 y 10
+		int adivina = new Random().nextInt(10) + 1;
+		//int adivina = 7;
+		int intentos = 0;
+		int num;
+		do {
+			System.out.print("Adivina el número del 1 al 10 (te quedan " + (3-intentos) + " " 
+					+ (((3-intentos)==1)?"intento): ":"intentos): "));
+			num = sc.nextInt();
+			intentos++;
+		} while (adivina != num && intentos < 3);
+		if (adivina==num) {
+			System.out.println("Has acertado!");
+		} else {
+			System.out.println("Has fallado!");
+		}
+	}
+	
+	public static void whileIgualQueDoWhile1() {
+		Scanner sc = new Scanner(System.in);
+		// Generamos número aleatorio entre 1 y 10
+		//int adivina = new Random().nextInt(10) + 1;
+		int adivina = 7;
+		int intentos = 0;
+		int num=-1;
+		while (adivina != num && intentos < 3){
+			System.out.print("Adivina el número del 1 al 10 (te quedan " + (3-intentos) + " " 
+					+ (((3-intentos)==1)?"intento): ":"intentos): "));
+			num = sc.nextInt();
+			intentos++;
+		} 
+		if (adivina==num) {
+			System.out.println("Has acertado!");
+		} else {
+			System.out.println("Has fallado!");
 		}
 	}
 
@@ -119,7 +159,9 @@ public class Iterativas {
 		// infinito3();
 		// while1();
 		// whileIgualQueFor();
-		whileIgualQueFor2();
+		// whileIgualQueFor2();
+		// doWhile1();
+		whileIgualQueDoWhile1();
 	}
 
 }
