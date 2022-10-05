@@ -135,13 +135,14 @@ public class Ejercicios {
 	}
 
 	public static void ejercicio12() {
+		final double PRECIO_ENTRADA = 100;
 		final int MAYORIA_EDAD = 18;
 		final int EDAD_JUBILACION = 65;
 		final double DESCUENTO_JOVEN = 0.25;
 		final double DESCUENTO_SOCIO = 0.40;
 		final double DESCUENTO_JUBILADO = 0.75;
 		Scanner sc = new Scanner(System.in);
-		double entrada = 100;
+		double entrada = PRECIO_ENTRADA;
 		System.out.print("Introduzca su edad: ");
 		int edad = Integer.parseInt(sc.nextLine());
 		//int edad = sc.nextInt();
@@ -154,7 +155,7 @@ public class Ejercicios {
 		} else if (edad >= MAYORIA_EDAD && edad < EDAD_JUBILACION) {
 			System.out.print("Es usted socio (si/no): ");
 			String socio = sc.nextLine();
-			if (socio.equals("si")) {
+			if (socio.toLowerCase().equals("si") || socio.toLowerCase().equals("sí") || socio.toLowerCase().equals("s")) {
 				descuento = DESCUENTO_SOCIO;
 				entrada = entrada * (1 - descuento);
 			}
