@@ -146,6 +146,106 @@ public class Iterativas {
 			System.out.println("Has fallado!");
 		}
 	}
+	
+	public static void forIgualQueDoWhile1() {
+		Scanner sc = new Scanner(System.in);
+		// Generamos número aleatorio entre 1 y 10
+		//int adivina = new Random().nextInt(10) + 1;
+		int adivina = 7;
+
+		int num=-1;
+		for (int intentos = 0;adivina != num && intentos < 3;intentos++){
+			System.out.print("Adivina el número del 1 al 10 (te quedan " + (3-intentos) + " " 
+					+ (((3-intentos)==1)?"intento): ":"intentos): "));
+			num = sc.nextInt();
+		} 
+		if (adivina==num) {
+			System.out.println("Has acertado!");
+		} else {
+			System.out.println("Has fallado!");
+		}
+	}
+	
+	public static void forIgualQueDoWhile2BreakContinue() {
+		Scanner sc = new Scanner(System.in);
+		// Generamos número aleatorio entre 1 y 10
+		//int adivina = new Random().nextInt(10) + 1;
+		int adivina = 7;
+
+		int num=-1;
+		for (int intentos = 0;intentos < 3;intentos++){
+			System.out.print("Adivina el número del 1 al 10 (te quedan " + (3-intentos) + " " 
+					+ (((3-intentos)==1)?"intento): ":"intentos): "));
+			num = sc.nextInt();
+			if (adivina==num) {
+				break;
+			} else {
+				continue;
+			}
+		} 
+		if (adivina==num) {
+			System.out.println("Has acertado!");
+		} else {
+			System.out.println("Has fallado!");
+		}
+	}
+	
+	public static void ejemploMenuDoWhile() {
+		Scanner sc = new Scanner(System.in);
+		int opcion=-1;
+		do {
+			System.out.println("1. Jugar");
+			System.out.println("2. Guardar");
+			System.out.println("3. Opciones");
+			System.out.println("0. Salir");			
+			System.out.println("Introduzca opción: ");
+			opcion = sc.nextInt();
+		}while (opcion!=0);
+	}
+	
+	public static void ejemploMenuWhile() {
+		Scanner sc = new Scanner(System.in);
+		int opcion=-1;
+		while (opcion!=0){
+			System.out.println("1. Jugar");
+			System.out.println("2. Guardar");
+			System.out.println("3. Opciones");
+			System.out.println("0. Salir");			
+			System.out.println("Introduzca opción: ");
+			opcion = sc.nextInt();
+		}
+	}
+	
+	public static void ejemploMenuWhileConSwitch() {
+		Scanner sc = new Scanner(System.in);
+		int opcion=-1;
+		while (opcion!=0){
+			// Imprimir menú
+			System.out.println("1. Jugar");
+			System.out.println("2. Guardar");
+			System.out.println("3. Opciones");
+			System.out.println("0. Salir");			
+			System.out.println("Introduzca opción: ");
+			opcion = sc.nextInt();  // coger opción
+			switch(opcion) {	// tratar la opción
+			case 1:
+				System.out.println("Has elegido jugar");
+				break;
+			case 2:
+				System.out.println("Has elegido guardar");
+				break;
+			case 3:
+				System.out.println("Has elegido opciones");
+				break;
+			case 0:
+				System.out.println("Gracias por jugar al juego. Nos vemos pronto!");
+				break;
+			default:
+				System.out.println("Opción no válida. Vuelva a elegir opción.");
+				break;
+			}
+		}
+	}
 
 	public static void main(String[] args) {
 		// for1();
@@ -161,7 +261,12 @@ public class Iterativas {
 		// whileIgualQueFor();
 		// whileIgualQueFor2();
 		// doWhile1();
-		whileIgualQueDoWhile1();
+		// whileIgualQueDoWhile1();
+		// forIgualQueDoWhile1();
+		// forIgualQueDoWhile2BreakContinue();
+		// ejemploMenuDoWhile();
+		// ejemploMenuWhile();
+		ejemploMenuWhileConSwitch();
 	}
 
 }
