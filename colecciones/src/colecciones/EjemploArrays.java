@@ -160,7 +160,7 @@ public class EjemploArrays {
 		tabla[3][0] = 9;
 		tabla[3][1] = 0;
 		tabla[3][2] = 8;
-		int[][] tabla2 = { { 5, 4, 9 }, { 8, 5, 1000 }, { -2, 14, 5 }, { 9, 0, 8 } };
+		int[][] notas = { { 5, 4, 9 }, { 8, 5, 10 }, { 0, 9, 5 }, { 9, 0, 8 } };
 
 		// recorrer las tablas
 		//int alto = tabla.length;
@@ -169,7 +169,8 @@ public class EjemploArrays {
 			// Mensajes antes de cada fila
 			//System.out.println("Tratamiento de la fila: " + fila);
 			for (int col = 0; col < tabla[fila].length; col++) {
-				System.out.print(tabla[fila][col] + " ");
+				//System.out.print(tabla[fila][col] + " ");
+				System.out.print("tabla[" + fila + "]["+ col + "]=" + tabla[fila][col] + " ");
 			}
 			// Mensajes al final de cada fila
 			// System.out.println("\nFin de la fila: " + fila); // Generamos salto de línea
@@ -177,6 +178,35 @@ public class EjemploArrays {
 		}
 		// Mensajes al final de la tabla
 
+		// bucle anidado con foreach
+		for(int[] fila: tabla) {
+			// esto imprime antes de cada fila
+			for(int columna: fila) {
+				System.out.print(columna + " ");
+			}
+			// imprime al cada fila
+			System.out.println();
+		}
+		
+		int numAlumno = 1;
+		double notaMediaGlobal = 0;
+		// Calculo de notas medias sobre la tabla notas
+		for(int[] alumno: notas) {
+			// esto imprime antes de cada fila
+			double sumaNotas = 0;
+			for(int nota: alumno) {
+				sumaNotas += nota;
+				notaMediaGlobal += nota;
+			}
+			// imprime la media alumno
+			//System.out.println("Media: " + (sumaNotas/alumno.length));
+			System.out.printf("Media del alumno %d: %.2f\n",numAlumno,sumaNotas/alumno.length);
+			numAlumno++;
+		}
+		System.out.println("Número de alumnos: " + notas.length);
+		System.out.println("Notas por alumno: " + notas[0].length);
+		System.out.printf("Media de todos los alumnos: %.2f\n",notaMediaGlobal/(notas.length*notas[0].length));
+		
 	}
 
 	public static void crearArrayApartirDeOtro() {
