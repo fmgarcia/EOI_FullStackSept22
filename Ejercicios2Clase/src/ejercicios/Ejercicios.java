@@ -173,6 +173,63 @@ public class Ejercicios {
 			System.out.println(i);
 		}
 	}
+	
+	/*14. Inicializa una variable entera a 0. Después, pregunta al usuario por un número y súmaselo a la
+	variable inicial. Repite esto hasta que el usuario introduzca el número cero. Utiliza el bucle
+	do..while.*/
+	public static void ejercicio14() {
+		Scanner sc = new Scanner(System.in);
+		int suma = 0;
+		int numero = -1;
+		do {			
+			System.out.print("Introduzca un número (acumulado " + suma + "): ");
+			numero = sc.nextInt();
+			suma += numero;
+		}while(numero!=0);
+		System.out.println("El total ha sido " + suma);
+	}
+	
+	/*Repite el ejercicio 2 pero con un bucle infinito (la condición nunca será falsa). En este caso
+	tendrás que comprobar dentro del bucle cuando el usuario ha introducido un cero para salir
+	(break). Si el usuario introduce un número negativo no lo sumes (usa continue para saltarte la
+	suma).*/
+	public static void ejercicio20() {
+		Scanner sc = new Scanner(System.in);
+		int suma = 0;
+		int numero = -1;
+		while(true) {			
+			System.out.print("Introduzca un número (acumulado " + suma + "): ");
+			numero = sc.nextInt();
+			if(numero==0) 
+				break;
+			if(numero<0)
+				continue;
+			suma += numero;
+		}
+		System.out.println("El total ha sido " + suma);
+	}
+	
+	/*15. Pide al usuario un número y calcula cuantas cifras tiene dicho número. Para ello puedes dividir
+	el número entre 10 hasta que el resultado sea cero.*/
+	// 1234/10 = 134 (1), 123/10 = 13 (2), 12 /10 =1 (3), 1/10 = 0 (4)
+	public static void ejercicio15() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Introduzca un número: ");
+		int numero = sc.nextInt();
+		int contador = 0;
+		while(numero!=0) {
+			numero = numero / 10;
+			contador++;
+		}
+		System.out.println("Su número tiene " + contador + " dígitos");
+	}
+	
+	public static void ejercicio15b() {
+		Integer numero = 1234;
+		System.out.println(numero.SIZE); // bits
+		System.out.println(numero.toString().length());
+	}
+
 
 	public static void main(String[] args) {
 		// ejercicio2();
@@ -180,7 +237,11 @@ public class Ejercicios {
 		// ejercicio4();
 		// ejercicio11();
 		// ejercicio11CalcularaBasica();
-		ejercicio12();
+		// ejercicio12();
+		// ejercicio14();
+		// ejercicio20();
+		// ejercicio15();
+		ejercicio15b();
 
 	}
 
