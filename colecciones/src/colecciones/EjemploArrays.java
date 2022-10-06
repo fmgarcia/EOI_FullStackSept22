@@ -84,7 +84,7 @@ public class EjemploArrays {
 
 	public static void ordenarArrays() {
 		int[] nums = { 15, 6, 9, 12, 20 };
-		
+
 		// Algoritmo de la burbuja
 		for (int i = 0; i < nums.length; i++) {
 			for (int j = i + 1; j < nums.length; j++) {
@@ -95,74 +95,110 @@ public class EjemploArrays {
 				}
 			}
 		}
-		
-		for(int numero : nums) {
+
+		for (int numero : nums) {
 			System.out.println(numero);
 		}
 
 	}
-	
+
 	public static void ordenarArrays2() {
 		int[] nums = { 15, 6, 9, 12, 20 };
-		Arrays.sort(nums);  // Me ordena el array
+		Arrays.sort(nums); // Me ordena el array
 		System.out.println(Arrays.toString(nums)); // [6, 9, 12, 15, 20] (Ordenados)
 	}
-	
+
 	public static void ordenarArrays3() {
 		String[] meses = { "Enero", "febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
 				"Octubre", "Noviembre", "Diciembre" }; // Del 0 al 11
 		// Orden normal
-		Arrays.sort(meses);  // Orden lexicográfico (normal) tiene en cuenta las mayúsculas y minúsculas
+		Arrays.sort(meses); // Orden lexicográfico (normal) tiene en cuenta las mayúsculas y minúsculas
 		System.out.println(Arrays.toString(meses));
 		// Orden case insensitive (no tiene en cuenta mayúsculas y minúsculas)
-		Arrays.sort(meses,String.CASE_INSENSITIVE_ORDER); 
+		Arrays.sort(meses, String.CASE_INSENSITIVE_ORDER);
 		System.out.println(Arrays.toString(meses));
 		// Orden inverso case sensitive
-		Arrays.sort(meses,Collections.reverseOrder()); 
+		Arrays.sort(meses, Collections.reverseOrder());
 		System.out.println(Arrays.toString(meses));
 		// Orden inverso case insensitive
-		Arrays.sort(meses,String.CASE_INSENSITIVE_ORDER.reversed()); 
+		Arrays.sort(meses, String.CASE_INSENSITIVE_ORDER.reversed());
 		System.out.println(Arrays.toString(meses));
 		// Orden por longitud de las palabras
-		Arrays.sort(meses,Comparator.comparingInt(String::length)); 
+		Arrays.sort(meses, Comparator.comparingInt(String::length));
 		System.out.println(Arrays.toString(meses));
-		Arrays.sort(meses,(mesa,mesb)->Integer.compare(mesa.length(), mesb.length())); 
+		Arrays.sort(meses, (mesa, mesb) -> Integer.compare(mesa.length(), mesb.length()));
 		System.out.println(Arrays.toString(meses));
-		Arrays.sort(meses,(a,b)->a.length()-b.length()); 
+		Arrays.sort(meses, (a, b) -> a.length() - b.length());
 		System.out.println(Arrays.toString(meses));
 		// Orden por longitud de las palabras inverso
-		Arrays.sort(meses,Comparator.comparingInt(String::length).reversed()); 
+		Arrays.sort(meses, Comparator.comparingInt(String::length).reversed());
 		System.out.println(Arrays.toString(meses));
-		Arrays.sort(meses,(mesa,mesb)->Integer.compare(mesb.length(), mesa.length())); 
+		Arrays.sort(meses, (mesa, mesb) -> Integer.compare(mesb.length(), mesa.length()));
 		System.out.println(Arrays.toString(meses));
-		Arrays.sort(meses,(a,b)->b.length()-a.length()); 
-		System.out.println(Arrays.toString(meses));	
-		
+		Arrays.sort(meses, (a, b) -> b.length() - a.length());
+		System.out.println(Arrays.toString(meses));
+
 		// Imprimo finalmente el array como queda
-		for(String mes : meses) {
+		for (String mes : meses) {
 			System.out.println(mes);
 		}
 	}
-	
+
+	// 2 dimensiones -> tabla (matriz)
+	public static void arraysMultidimensionales() {
+		// Ejemplo de tabla no escalonada
+		int[][] tabla = new int[4][3]; // crear el array y darle memoria
+		tabla[0][0] = 5;
+		tabla[0][1] = 4;
+		tabla[0][2] = 9;
+		tabla[1][0] = 8;
+		tabla[1][1] = 5;
+		tabla[1][2] = 1000;
+		tabla[2][0] = -2;
+		tabla[2][1] = 14;
+		tabla[2][2] = 5;
+		tabla[3][0] = 9;
+		tabla[3][1] = 0;
+		tabla[3][2] = 8;
+		int[][] tabla2 = { { 5, 4, 9 }, { 8, 5, 1000 }, { -2, 14, 5 }, { 9, 0, 8 } };
+
+		// recorrer las tablas
+		//int alto = tabla.length;
+		//int ancho = tabla[0].length;
+		for (int fila = 0; fila < tabla.length; fila++) {
+			// Mensajes antes de cada fila
+			//System.out.println("Tratamiento de la fila: " + fila);
+			for (int col = 0; col < tabla[fila].length; col++) {
+				System.out.print(tabla[fila][col] + " ");
+			}
+			// Mensajes al final de cada fila
+			// System.out.println("\nFin de la fila: " + fila); // Generamos salto de línea
+			System.out.println();
+		}
+		// Mensajes al final de la tabla
+
+	}
+
 	public static void crearArrayApartirDeOtro() {
 		// creo un array con el número de letras del array meses
 		String[] meses = { "Enero", "febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
 				"Octubre", "Noviembre", "Diciembre" }; // Del 0 al 11
-		int[] letrasMeses = new int[meses.length];  // mismo tamaño que meses
-		for(int i=0;i<meses.length;i++) {
+		int[] letrasMeses = new int[meses.length]; // mismo tamaño que meses
+		for (int i = 0; i < meses.length; i++) {
 			letrasMeses[i] = meses[i].length();
 		}
-		for(int mes : letrasMeses) {
+		for (int mes : letrasMeses) {
 			System.out.println(mes);
 		}
 	}
 
 	public static void main(String[] args) {
-		//ejemplo1();
-		//ordenarArrays();
-		//ordenarArrays2();
-		//ordenarArrays3();
-		crearArrayApartirDeOtro();
+		// ejemplo1();
+		// ordenarArrays();
+		// ordenarArrays2();
+		// ordenarArrays3();
+		// crearArrayApartirDeOtro();
+		arraysMultidimensionales();
 
 	}
 

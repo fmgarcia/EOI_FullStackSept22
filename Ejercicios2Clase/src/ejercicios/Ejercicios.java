@@ -225,9 +225,9 @@ public class Ejercicios {
 	}
 	
 	public static void ejercicio15b() {
-		Integer numero = 1234;
-		System.out.println(numero.SIZE); // bits
-		System.out.println(numero.toString().length());
+		Integer numero = -1234;
+		System.out.println(numero.SIZE); // bits -> 32
+		System.out.println(String.valueOf(numero).length());
 	}
 
 
