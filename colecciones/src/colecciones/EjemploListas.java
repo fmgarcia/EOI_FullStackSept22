@@ -53,8 +53,8 @@ public class EjemploListas {
 		List<String> alumnosDam = new ArrayList<String>(Arrays.asList("pablo","Ismael","Yessica"));
 		List<String> alumnosEoi = new ArrayList<String>(Arrays.asList("Alberto","Benjamín","Camila","Pablo"));
 		List<String> alumnosBorrar = new ArrayList<String>(Arrays.asList("Pablo","Benjamín"));
-		List<String> todosAlumnos = new ArrayList<String>(alumnosDam);
-		todosAlumnos.addAll(alumnosEoi);
+		List<String> todosAlumnos = new ArrayList<String>(alumnosDam);  // pablo, Ismael, Yessica
+		todosAlumnos.addAll(alumnosEoi); // pablo, Ismael, Yessica, Alberto, Benjamín, Camila, Pablo
 		System.out.println("Todos mis alumnos:");
 		todosAlumnos.forEach(e->System.out.println(e));
 		todosAlumnos.removeAll(alumnosBorrar);
@@ -86,14 +86,61 @@ public class EjemploListas {
 		if(meses.contains("enero"))
 			System.out.println("enero existe en la lista");
 		if(meses.containsAll(new ArrayList<String>(Arrays.asList("Enero","febrero"))))
-			System.out.println("Enero y Febrero existen en la lista");
+			System.out.println("Enero y febrero existen en la lista");
+		
+	}
+	
+	public static void reemplazarLista() {
+		List<String> meses = new ArrayList<String>(Arrays.asList("Enero", "febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
+				"Octubre", "Noviembre", "Diciembre"));
+		meses.replaceAll(e->e + " mes");  // hace una operación a TODOS los elementos de una lista, sin ningún tipo de filtro.
+		meses.forEach(e->System.out.println(e));
+		meses = new ArrayList<String>(Arrays.asList("Enero", "febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
+				"Octubre", "Noviembre", "Diciembre"));
+		meses.replaceAll(cadena->cadena.substring(0, 1).toUpperCase() + cadena.substring(1).toLowerCase()); // Capitalizar una lista entera
+		meses.forEach(e->System.out.println(e));
+		// Filtrar elementos en la cadena
+		meses.stream()
+			.filter(e->e.equals("Julio")  || e.equals("Agosto"))
+			.forEach(e-> e="Verano");  // Esto no hace lo que nosotros queremos, ya que no puede reemplazar sobre la marcha
+		//meses.forEach(e->System.out.println(e))
+
+		// Buscar los elementos que queremos y cambiar el contenido de su posición
+		meses.indexOf("Julio"); // 6
+		meses.set(meses.indexOf("Julio"), "Verano");
+		meses.set(meses.indexOf("Agosto"), "Verano");
+		meses.set(11, "December");		
+		meses.forEach(e->System.out.println(e));
+		
+	}
+	
+	public static void algunasOperacionesCadenas() {
+		String cadena = "Hola mundo";
+		System.out.println(cadena.length());  // 10
+		cadena.replace("Hola", "hola");  // Esto no hace lo que yo quiero
+		System.out.println(cadena); // Hola o hola? -> Hola (inmutabilidad de las cadenas)
+		cadena = cadena.replace("Hola", "hola");  // Esto sí hace lo que yo quiero
+		System.out.println(cadena);
+		System.out.println(cadena.toUpperCase());
+		System.out.println(cadena.substring(0, 1).toUpperCase());  // Esto es la primera letra en mayúscula
+		cadena = cadena.substring(0, 1).toUpperCase() + cadena.substring(1).toLowerCase();  // Capitalizar una cadena
+		System.out.println(cadena);
+		String cadena2="Esta es una cadena más larga que la anterior";
+		// Encontrar todas las 'a' de esta cadena
+		for (int i = 0; i < cadena2.length(); i++) {
+			if(cadena2.charAt(i)=='a' || cadena2.charAt(i)=='á') {
+				System.out.println("Encontrada una 'a' en la posición: " + i);
+			}
+		}
 		
 	}
 	
 	
 	public static void main(String[] args) {
 		//ejemplo1();
-		buscarLista();
+		//buscarLista();
+		//reemplazarLista();
+		algunasOperacionesCadenas();
 
 	}
 
