@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Scanner;
 
 public class EjemploListas {
 
@@ -125,14 +126,40 @@ public class EjemploListas {
 		System.out.println(cadena.substring(0, 1).toUpperCase());  // Esto es la primera letra en mayúscula
 		cadena = cadena.substring(0, 1).toUpperCase() + cadena.substring(1).toLowerCase();  // Capitalizar una cadena
 		System.out.println(cadena);
-		String cadena2="Esta es una cadena más larga que la anterior";
+		String cadena2="Esta es una cadena más larga que la Anterior";
 		// Encontrar todas las 'a' de esta cadena
 		for (int i = 0; i < cadena2.length(); i++) {
-			if(cadena2.charAt(i)=='a' || cadena2.charAt(i)=='á') {
+			if(cadena2.toLowerCase().charAt(i)=='a' || cadena2.toLowerCase().charAt(i)=='á') {
 				System.out.println("Encontrada una 'a' en la posición: " + i);
 			}
 		}
 		
+	}
+	
+	// dada una cadena, pregunta al usuario la subcadena a buscar y muéstrale esa subcadena hasta el final
+	// luego pregunta si quiere buscar la siguiente ocurrencia y mientras diga que sí, sácale el resultado.
+	public static void buscarSiguiente() {
+		Scanner sc = new Scanner(System.in);
+		String cadena="w Esta es una cadena más larga que la Anterior, hola adiós hola hola";
+		boolean salir = false;
+		int posicionEncontrada = -1;
+		// Pista: contains, indexOf, lastIndexOf
+		System.out.println("Introduzca la cadena a buscar: ");
+		String cadenaBuscada = sc.nextLine();
+		while(!salir) {
+			posicionEncontrada = cadena.toLowerCase().indexOf(cadenaBuscada.toLowerCase(), posicionEncontrada+1);
+			if(posicionEncontrada!=-1) {  // Encuentro la cadena
+				System.out.println(cadena.substring(posicionEncontrada));
+				System.out.println("¿Buscar siguiente? (s/n): ");
+				String respuesta = sc.nextLine();
+				if(respuesta.toLowerCase().equals("n")) {
+					salir = true;
+				}
+			} else {
+				System.out.println("No se encuentran más ocurrencias de la cadena");
+				salir = true;
+			}			
+		}		
 	}
 	
 	
@@ -140,7 +167,8 @@ public class EjemploListas {
 		//ejemplo1();
 		//buscarLista();
 		//reemplazarLista();
-		algunasOperacionesCadenas();
+		//algunasOperacionesCadenas();
+		buscarSiguiente();
 
 	}
 
