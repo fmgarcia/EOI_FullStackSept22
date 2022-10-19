@@ -217,7 +217,7 @@ public class Ejemplos {
 		LocalDate fechaTextoConvertida = LocalDate.parse("2010-12-30");
 		System.out.println(fechaTextoConvertida);
 		System.out.println(LocalDate.parse("2010-12-30"));
-		System.out.println(LocalDate.parse("27/07/2000", DateTimeFormatter.ofPattern("d/M/yyyy")));
+		System.out.println(LocalDate.parse("27/07/2000", DateTimeFormatter.ofPattern("d/M/yyyy")));  // Lo más normal en España
 		System.out.println(LocalDate.parse("2000-01-30+05:00", DateTimeFormatter.ISO_DATE));
 		String fechaMarcaTexto = "Wed, 19 Oct 2022 16:21:35 +0200";
 		LocalDateTime fechaHoraMarca = LocalDateTime.parse(fechaMarcaTexto,DateTimeFormatter.RFC_1123_DATE_TIME);
