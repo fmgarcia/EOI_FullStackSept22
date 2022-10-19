@@ -1,6 +1,8 @@
 package funciones;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -209,12 +211,17 @@ public class Ejemplos {
 		System.out.println("Hoy es el día de la semana: " + fechaAhora.getDayOfWeek());
 		System.out.println("Hoy es antes que ayer: " + fechaAhora.isBefore(fechaAyer));
 		System.out.println("Fecha como número: " + fechaAhora.toEpochDay());  // Te transforma una fecha a un número (a partir del 01/01/1970 por convención)
-		System.out.println("Fecha como número: " + fechaAhora.ofEpochDay(19284));  // Te transforma un número a una fecha
+		System.out.println("Número como fecha: " + fechaAhora.ofEpochDay(19284));  // Te transforma un número a una fecha
 		
-		String fechaTextoLarga = "2019-01-01 00:00:00 +0000 UTC";
-		LocalDate fechaTextoConvertida = LocalDate.parse(fechaTexto);
+		String fechaTextoLarga = "2019-01-01 +0000 UTC";
+		LocalDate fechaTextoConvertida = LocalDate.parse("2010-12-30");
 		System.out.println(fechaTextoConvertida);
-		
+		System.out.println(LocalDate.parse("2010-12-30"));
+		System.out.println(LocalDate.parse("27/07/2000", DateTimeFormatter.ofPattern("d/M/yyyy")));
+		System.out.println(LocalDate.parse("2000-01-30+05:00", DateTimeFormatter.ISO_DATE));
+		String fechaMarcaTexto = "Wed, 19 Oct 2022 16:21:35 +0200";
+		LocalDateTime fechaHoraMarca = LocalDateTime.parse(fechaMarcaTexto,DateTimeFormatter.RFC_1123_DATE_TIME);
+		System.out.println("Día: " + fechaHoraMarca.getDayOfMonth() + " hora: " + fechaHoraMarca.getHour());
 	}
 
 	public static void main(String[] args) {
