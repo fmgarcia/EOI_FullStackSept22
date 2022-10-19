@@ -1,5 +1,7 @@
 package funciones;
 
+import java.time.LocalDate;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -119,9 +121,104 @@ public class Ejemplos {
 		cadena = cadena + " hola";
 		return cadena;
 	}
+	
+	public static double absFran(double numero) {
+		if(numero>=0)
+			return numero;
+		else
+			return -numero;
+	}
+	
+	public static void ejemplosMath() {
+		double n1 = -23.40;
+		double n2 = 2.349532;
+		double n3 = 2.99;
+		double n4 = -2.99;
+		
+		// -3, -2, -1, 0, 1, 2, 3
+
+		System.out.println(Math.abs(n1)); // Devuelve el valor absoluto: 23.4
+		System.out.println(absFran(n1)); // Devuelve el valor absoluto: 23.4
+		System.out.println(Math.round(n2)); // 2. Redondea. A partir de .50 hacia arriba y sino hacia abajo
+		System.out.println(Math.floor(n3)); // 2. Duvuelve el número por debajo del argumento 
+		System.out.println(Math.floor(n4)); // ??? -> -3
+		System.out.println(Math.ceil(n3)); // ??? -> 3 Devuelve el siguiente número al argumento pasado
+		System.out.println(Math.ceil(n4)); // ??? -> -2		
+		System.out.println(Math.max(23, 43)); // 43
+		System.out.println(Math.min(4, 5)); // 4
+		System.out.println(Math.sqrt(25)); // 5 . raiz cuadrada
+		System.out.println(Math.pow(5,2)); // 25 . elevar al cuadrado
+		System.out.println(Math.pow(5,3)); // 125 . elevar al cuadrado
+		System.out.println(Math.sin(90)); // 1. calculo del seno
+		System.out.println(Math.random()); // número aleatorio entre 0.00 y 1.00
+		Random r = new Random();
+		int valorDado = r.nextInt(10)+1;  // Entre 0 y 10 excluido, más 1, es decir, del 1 al 10 ambos incluidos.
+		System.out.println(valorDado); // Imprime entre 1 y 10
+	}
+	
+	public static void ejemplosCadenas() {
+		String cadena = "Hola mundo";
+		
+		System.out.println(cadena.charAt(0)); // H
+		System.out.println(cadena.concat(" cruel")); // hola mundo cruel
+		System.out.println(cadena); // hola mundo
+		String[] nombres = {"Paco", "Pepa", "Dani"};
+		System.out.println(String.join(", ", nombres)); // Paco, Pepa, Dani
+		String nombresJuntos = String.join(", ", nombres);
+		System.out.println(nombresJuntos); // Paco, Pepa, Dani
+		String s1 = "ahora";
+		String s2 = "despues";
+		System.out.println(s1.compareTo(s2)); // -3
+		String s = "Mi perro se llama Comeniños";
+		System.out.println(s.indexOf("perro")); // 3
+		System.out.println(s.indexOf("gato")); // -1
+		System.out.println(s.contains("perro")); // true
+		System.out.println(s.contains("gato")); // false
+		s = s.replace("perro", "koala");
+		System.out.println(s); // Mi koala se llama Comeniños
+		s = "Mi perro se llama Comeniños";
+		String animal = s.substring(3, 8);
+		System.out.println(animal); // perro
+		s = "pato-gato-perro-koala";
+		String[] animales = s.split("-");
+		System.out.println("Hay " + animales.length + " animales"); // Hay 4 animales
+		for(String animalString : animales) {
+			System.out.println(animalString);
+		}
+		
+		String tiempo = "51.50853,-0.12574,1546300800,2019-01-01 00:00:00 +0000 UTC,1546300800,2019-01-01 00:00:00 +0000 UTC,8.08,4.63,1034.848,1029.908,78.61,,2.959,292.075,,,,,,,,,";
+		String[] datos = tiempo.split(",");
+		System.out.println(datos[6]);  // 8.08 (obtiene la temperatura)
+		
+	}
+	
+	public static void ejemplosFechas() {
+		String fechaTexto = "01/12/2010";
+		LocalDate fechaAhora = LocalDate.now();
+		LocalDate fechaAyer = LocalDate.now().minusDays(1);
+		System.out.println(fechaAhora);
+		LocalDate fechaAhoraMas30 = fechaAhora.plusDays(30);  // Suma número de días
+		System.out.println(fechaAhoraMas30);
+		System.out.println(fechaAhora.plusWeeks(40));  // Suma 40 semanas
+		System.out.println(fechaAhora.minusMonths(2));  // Resta 2 meses
+		//System.out.println(fechaTexto + 1);  // No tiene sentido
+		System.out.println("Hoy es el día: " + fechaAhora.getDayOfMonth());
+		System.out.println("Hoy es el día año: " + fechaAhora.getDayOfYear());
+		System.out.println("Hoy es el mes: " + fechaAhora.getMonthValue());
+		System.out.println("Hoy es el año: " + fechaAhora.getYear());
+		System.out.println("Hoy es el día de la semana: " + fechaAhora.getDayOfWeek());
+		System.out.println("Hoy es antes que ayer: " + fechaAhora.isBefore(fechaAyer));
+		System.out.println("Fecha como número: " + fechaAhora.toEpochDay());  // Te transforma una fecha a un número (a partir del 01/01/1970 por convención)
+		System.out.println("Fecha como número: " + fechaAhora.ofEpochDay(19284));  // Te transforma un número a una fecha
+		
+		String fechaTextoLarga = "2019-01-01 00:00:00 +0000 UTC";
+		LocalDate fechaTextoConvertida = LocalDate.parse(fechaTexto);
+		System.out.println(fechaTextoConvertida);
+		
+	}
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+		//Scanner sc = new Scanner(System.in);
 
 		// TODO Auto-generated method stub
 		// funcion1();
@@ -153,7 +250,7 @@ public class Ejemplos {
 		 */
 
 		// Parámetros variables
-		String resultado = concatenarCadenas("Hola");
+		/*String resultado = concatenarCadenas("Hola");
 		System.out.println(resultado);
 		System.out.println(concatenarCadenas("Hola", "mundo"));
 		System.out.println(concatenarCadenas("Hola", "mundo", "cruel"));
@@ -175,7 +272,17 @@ public class Ejemplos {
 		System.out.println(cad); // "Fran" o "Fran hola"? -> Fran hola
 		String otra = "otra";
 		otra.concat(" cadena");
-		System.out.println(otra);  // "otra" o "otra cadena"?
+		System.out.println(otra);  // "otra" o "otra cadena"? -> otra
+		otra = otra.concat(" cadena");
+		System.out.println(otra);  // "otra" o "otra cadena"? -> otra cadena
+		
+		// No cambia: int, float, double, char, String (se pasan por valor, se hace una copia y se trabaja sobre la copia)
+		// Si cambia: Arrays, Listas, Objetos (se pasan por referencia, se trabaja con el objeto original y las modificaciones le afectan)
+		*/
+		//ejemplosMath();
+		//ejemplosCadenas();
+		ejemplosFechas();
+	
 	}
 
 }
