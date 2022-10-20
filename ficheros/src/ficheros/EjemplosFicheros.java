@@ -68,18 +68,32 @@ public class EjemplosFicheros {
 		enteros[0]= 10;
 		enteros[1]= 15;
 		String cadena = null;
+		int longitudCadena = 0;
 		try {
-			int longitudCadena = cadena.length();
-			enteros[2] = 9;
+			if(cadena!=null)
+				longitudCadena = cadena.length();
+			else
+				throw new Exception("Cadena Nula");
+			enteros[2] = longitudCadena;
 			int division = numero1/numero2;
 			Files.write(Paths.get("c:\\ficherox\\eoi.txt"),
 					Arrays.asList(""+division), StandardOpenOption.CREATE_NEW);
 			
-
+		} catch (ArithmeticException e) {
+			e.printStackTrace(); // Esto ayuda a saber donde está el problema
+			System.out.println("Error en la división"); // controlamos la división
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println("Error en acceso al fichero");
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Otro tipo de error");
+		} finally {
+			// Esto se ejecuta haya acabado el try correctamente o 
+			// haya fallado una línea y generado una excepcion y saltado al catch
 		}
+		// Esto se ejecutaría siempre
+		System.out.println("Hola");
 	}
 
 	public static void main(String[] args) {		
