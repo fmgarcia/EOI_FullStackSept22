@@ -41,8 +41,7 @@ public class EjerciciosFunciones {
 		for(int i=0; i<numero;i++) {
 			System.out.print(caracter);
 		}
-		System.out.println();
-		
+		System.out.println();		
 		// Filas de mitad
 		for(int i=0; i<numero-2;i++) {
 			System.out.print(caracter);  // el lado izquierdo del cuadrado
@@ -51,13 +50,51 @@ public class EjerciciosFunciones {
 			}
 			System.out.print(caracter); // el lado derecho del cuadrado
 			System.out.println();
-		}
-				
+		}				
 		// Fila abajo
 		for(int i=0; i<numero;i++) {
 			System.out.print(caracter);
-		}
-		
+		}		
+	}
+	
+	public static void ejercicio3a(char caracter, int numero) {
+		for(int i=0; i<numero;i++) {
+			if(i==0 || i==numero-1) {
+				for(int j=0; j<numero;j++) {
+					System.out.print(caracter);
+				}
+				System.out.println();
+			}
+			else {
+				System.out.print(caracter);  // el lado izquierdo del cuadrado
+				for(int j=0; j<numero-2;j++) {
+					System.out.print(" ");
+				}
+				System.out.print(caracter); // el lado derecho del cuadrado
+				System.out.println();
+			}
+		}					
+	}
+	
+	public static void ejercicio3b(char caracter, int numero) {
+		for(int i=0; i<numero;i++) {
+			if(i==0 || i==numero-1) {
+				String repetido = "" + caracter;
+				System.out.println(repetido.repeat(numero));
+			}
+			else {
+				String repetido = " ";
+				System.out.println(caracter + repetido.repeat(numero-2) + caracter);
+			}
+		}	
+	}
+	
+	
+	public static void ejercicio3c(char caracter, int numero) {
+		for(int i=0; i<numero;i++) 
+			System.out.println((i==0 || i==numero-1)?
+					("" + caracter).repeat(numero):
+					caracter + " ".repeat(numero-2) + caracter);	
 	}
 	
 	public static void main(String[] args) {
@@ -69,7 +106,10 @@ public class EjerciciosFunciones {
 		//ejercicio2c("adiós",4,2); // No está en el rango
 		//ejercicio2cMejorado("hola",4,2);  // Está en el rango
 		//ejercicio2cMejorado("adiós",4,2); // No está en el rango
-		ejercicio3('*',7);
+		//ejercicio3('*',7);
+		//ejercicio3b('*',7);
+		//ejercicio3c('*',7);
+		ejercicio3a('*',7);
 	}
 
 }
