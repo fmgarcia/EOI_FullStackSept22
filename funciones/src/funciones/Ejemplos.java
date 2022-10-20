@@ -250,8 +250,9 @@ public class Ejemplos {
 		// Programa que pide un número por pantalla y le suma 10 a su cuadrado
 		/*
 		 * System.out.println("Introduzca un número:"); int numero =
-		 * Integer.parseInt(sc.nextLine()); int numeroCuadrado =
-		 * devolverCuadrado(numero); double numeroPow = Math.pow(numero, 2);
+		 * Integer.parseInt(sc.nextLine()); 
+		 * int numeroCuadrado = devolverCuadrado(numero); 
+		 * double numeroPow = Math.pow(numero, 2);
 		 * numeroCuadrado += 10; numeroPow += 10; System.out.println(numeroCuadrado);
 		 * System.out.println(numeroPow);
 		 */
