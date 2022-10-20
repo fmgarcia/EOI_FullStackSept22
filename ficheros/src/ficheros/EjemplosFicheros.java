@@ -12,13 +12,50 @@ import java.util.List;
 
 public class EjemplosFicheros {
 	
-	public static void leer1(String directorio, String nombreFichero)  {
+	public static void leerFichero(String directorio, String nombreFichero)  {
 		try {
 			Files.readAllLines(Paths.get(directorio + File.separator + nombreFichero))
 			.forEach(l->System.out.println(l));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Ejemplo de método sobrecargado
+	 * @param directorio
+	 * @param nombreFichero
+	 */
+	public static void leerFichero(String ruta)  {
+		File fichero = new File(ruta);
+		leerFichero(fichero.getParent(), fichero.getName());
+	}
+	
+	public static void leerRutaEntera(String ruta) {
+		try {
+			Files.readAllLines(Paths.get(ruta)).forEach(l->System.out.println(l));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public static List<String> devolverLineasFichero(String directorio, String nombreFichero)  {
+		try {
+			return Files.readAllLines(Paths.get(directorio + File.separator + nombreFichero));			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static int suma(int a,int b) {
+		return a+b;
+	}
+	
+	// Ejemplo de parámetros por defecto
+	public static int suma(int a) {
+		return suma(a,5);
 	}
 	
 	public static void leer2(String directorio, String nombreFichero)  {		
@@ -32,15 +69,7 @@ public class EjemplosFicheros {
 		}		
 	}
 	
-	public static void leerRutaEntera(String ruta) {
-		try {
-			Files.readAllLines(Paths.get(ruta)).forEach(l->System.out.println(l));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println("Fin de la función");
-	}
+	
 	
 	public static void escribir1(String directorio, String nombreFichero, List<String> lineas) {
 		try {
@@ -97,16 +126,39 @@ public class EjemplosFicheros {
 	}
 
 	public static void main(String[] args) {		
-		//leer1("c:\\ficheros","eoi.txt");
-		//leer1("c:\\ficheros\\datosbancos","caixa.txt");
+		//leerFichero("c:\\ficheros","eoi.txt");
+		//leerFichero("c:\\ficheros\\datosbancos","caixa.txt");
 		//leer2("c:\\ficheros","eoi.txt");
 		//List<String> lineas = Arrays.asList("Linea 1" , "Línea 2");
 		//escribir1("c:\\ficheros","ejemploeoi.txt",lineas);
 		//leerRutaEntera("c:\\ficherox\\eoi.txt");
+		//leerFichero("c:\\ficheros","eoi.txt");
+		//leerFichero("c:\\ficheros\\eoi.txt");
+		
+		// Opción 1. En dos pasos
+		List<String> lineas = devolverLineasFichero("c:\\ficheros\\datosbancos","caixa.txt");
+
+		// Sin programación funcional. Programación estructurada 
+		for(String linea : lineas) {
+			if(linea.contains("Dani"))
+				System.out.println(linea);
+		}
+		
+		// Con programación funcional
+		lineas.stream()
+			.filter(l->l.contains("Dani"))
+			.forEach(l->System.out.println(l));
+		
+		// Opción 2. En un paso.
+		devolverLineasFichero("c:\\ficheros\\datosbancos","caixa.txt").stream()
+		.filter(l->l.contains("Dani"))
+		.forEach(l->System.out.println(l));
+		
+		
 		
 		//ejemploTry();
-		ejemploTry2();
-		System.out.println("Fin del main");
+		//ejemploTry2();
+		//System.out.println("Fin del main");
 	}
 
 }
