@@ -1,5 +1,6 @@
 package poo1;
 
+import java.util.Objects;
 
 //1. Crear los atributos de la clase
 //2. Crear los constructores (vacio, todos los parámetros) 
@@ -7,7 +8,7 @@ package poo1;
 //3. Crear Getters and Setters
 //4. Crear toString
 //5. Crear hashCode and Equals
-//6. (Opcional) métodos 
+//6. (Opcional) métodos adicionale de la clase
 
 public class Coche {
 
@@ -55,12 +56,15 @@ public class Coche {
 	// Generar Getters and Setters
 	
 	public String getMatricula() {
-		return matricula;
+		return matricula.substring(0,4) + "***";
 	}
 
 
 	public void setMatricula(String matricula) {
-		this.matricula = matricula;
+		if(matricula.length()>7)
+			this.matricula = matricula.substring(0, 7);
+		else
+			this.matricula = matricula;
 	}
 
 
@@ -100,8 +104,41 @@ public class Coche {
 
 
 	public void setKms(int kms) {
-		this.kms = kms;
+		this.kms = Math.abs(kms);
 	}
+
+
+	@Override
+	public String toString() {
+		String resultado = "Matricula: " + matricula + "\n"
+				+ "Marca: " + marca + "\n"
+				+ "Modelo: " + modelo + "\n"
+				+  "Año: " + anyo;
+		return resultado;
+	}
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(marca, matricula, modelo);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Coche other = (Coche) obj;
+		return Objects.equals(marca, other.marca) && Objects.equals(matricula, other.matricula)
+				&& Objects.equals(modelo, other.modelo);
+	}
+
+
+	
 
 
 	
