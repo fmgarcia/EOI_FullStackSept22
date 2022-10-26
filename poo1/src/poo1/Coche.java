@@ -17,6 +17,7 @@ public class Coche {
 	private String modelo;
 	private int anyo;
 	private int kms;
+	static int contadorRodados;
 	
 	// Constructor vacío
 	public Coche() {
@@ -38,6 +39,8 @@ public class Coche {
 		else
 			this.anyo = anyo;
 		this.kms = Math.abs(kms);
+		if(kms>10000)
+			contadorRodados++;
 	}
 
 
@@ -58,13 +61,15 @@ public class Coche {
 		this.modelo = c.modelo;
 		this.anyo = c.anyo;
 		this.kms = c.kms;
+		if(c.kms>10000)
+			contadorRodados++;
 	}
 
 
 	// Generar Getters and Setters
 	
 	public String getMatricula() {
-		return matricula.substring(0,4) + "***";
+		return matricula;
 	}
 
 
@@ -112,6 +117,10 @@ public class Coche {
 
 
 	public void setKms(int kms) {
+		if(this.kms<=10000 && Math.abs(kms)>10000) // antes no estaba rodado y ahora sí
+			contadorRodados++;
+		else if(this.kms>10000 && Math.abs(kms)<=10000)
+			contadorRodados--;
 		this.kms = Math.abs(kms);
 	}
 

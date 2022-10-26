@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Prueba {
 	
@@ -38,6 +39,7 @@ public class Prueba {
 		
 		Coche vacio = new Coche();  // crea un coche usando el constructor vacio
 		Coche todosParametros = new Coche("0000AAA", "Seat", "Panda", 90, -80000);
+		Coche noCoche = todosParametros;  // no crea un coche nuevo, sino un alias de todosParametros
 		System.out.println(todosParametros + "\nKilómetros: " + todosParametros.getKms());
 		Coche tresParametros = new Coche("1111BBB","BMW", "Z3");
 		Coche copia = new Coche(todosParametros);  // usa el constructor de copia
@@ -91,6 +93,43 @@ public class Prueba {
 		coches.add(alta);
 	}
 	
+	public static void darBaja() {
+		System.out.println("Introduzca la matricula del coche que quiera dar de baja:");
+		String matricula = sc.nextLine();
+		//coches.remove(matricula);  // no hace lo que queremos pq no borra un coche, borra un String
+		/* Borrar todos los coches que coincida la matrícula
+		List<Coche> cochesBorrar = coches.stream()
+				.filter(n -> n.getMatricula().equals(matricula))
+				.collect(Collectors.toList());
+		coches.removeAll(cochesBorrar);
+		*/	
+		/*
+		Coche c= new Coche(matricula);
+        if(coches.contains(c)){
+            coches.remove(c);
+            System.out.println("Se ha dado de baja");
+        }else
+            System.out.println("No hay ningun coche con esa matrícula");
+        */
+		// Recorro la lista y si coincide la matrícula elimino el elemento
+		Coche borrar = null;
+		for(Coche c : coches) {
+			if(c.getMatricula().equals(matricula)) {
+				borrar = new Coche(c);				
+				break;
+			}
+		}
+		if(borrar!=null) {
+			coches.remove(borrar);
+			System.out.println("Coche borrado correctamente");
+		}
+		
+		// Borra todos los coches que coincida la matrícula
+		//coches.removeIf(c->c.getMatricula().equals(matricula));  // Borra todos los coches que coincidan la matrícula
+		
+
+	}
+	
 	public static void menu() {
 		int opcion;
 		do {
@@ -108,13 +147,14 @@ public class Prueba {
 				darAlta();
 				break;
 			case 2:
-
+				darBaja();
 				break;
 			case 3:
 
 				break;
 			case 4:
-
+				System.out.println(Coche.contadorRodados);
+				System.out.println(coches.stream().filter(c->c.rodado()==true).count());
 				break;
 			case 5:
 				coches.forEach(e->System.out.println(e));
@@ -132,9 +172,9 @@ public class Prueba {
 	public static void main(String[] args) {
 		
 		//ejemploPersonas();
-		//ejemplosCoches();
+		ejemplosCoches();
 		sc = new Scanner(System.in);
-		menu();
+		//menu();
 		sc.close();
 	}
 
