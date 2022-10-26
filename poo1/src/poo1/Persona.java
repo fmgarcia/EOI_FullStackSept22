@@ -2,6 +2,15 @@ package poo1;
 
 import java.time.LocalDate;
 
+
+// 1. Crear los atributos de la clase
+// 2. Crear los constructores (vacio, todos los parámetros) 
+// 2.b. (opcional) Crear más constructores y el de copia
+// 3. Crear Getters and Setters
+// 4. Crear toString
+// 5. Crear hashCode and Equals
+// 6. (Opcional) métodos adicionales
+
 public class Persona {
 	
 	// Atributos de la clase (propiedades)
