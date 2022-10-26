@@ -20,7 +20,8 @@ public class Coche {
 	
 	// Constructor vacío
 	public Coche() {
-		
+		this.matricula = "0000AAA";
+		this.anyo = 2000;
 	}
 
 	
@@ -30,8 +31,13 @@ public class Coche {
 		this.matricula = matricula;
 		this.marca = marca;
 		this.modelo = modelo;
-		this.anyo = anyo;
-		this.kms = kms;
+		if(anyo>50 && anyo<=99)
+			this.anyo=1900+anyo;
+		else if(anyo>=0 && anyo<=50)
+			this.anyo = 2000+anyo;
+		else
+			this.anyo = anyo;
+		this.kms = Math.abs(kms);
 	}
 
 
@@ -40,6 +46,8 @@ public class Coche {
 		this.matricula = matricula;
 		this.marca = marca;
 		this.modelo = modelo;
+		this.anyo = 2000;
+		this.kms = 10000;
 	}
 
 	// Constructor copia
@@ -137,15 +145,33 @@ public class Coche {
 				&& Objects.equals(modelo, other.modelo);
 	}
 
+	// Métodos adicionales
+	
+	/**
+	 * Método que dado un coche te dice si es nuevo o viejo, basándose en el año 2000
+	 * @return Cadena "Nuevo" si es mayor o igual al 2000, "Viejo" en caso contrario
+	 */
+	public String estado() {
+		if(this.anyo>=2000) {
+			return "Nuevo";
+		} else {
+			return "Viejo";
+		}
+	}
+	
+	/**
+	 * Método que me devuelve true si el coche ya ha hecho el rodado, false en caso contrario.
+	 * Considero el coche rodado si tiene más de 10000 Kms
+	 * @return True si está rodado, false si no lo está
+	 */
+	public boolean rodado() {
+		if(this.kms>10000) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-	
-
-
-	
-	
-	
-	
-	
 	
 	
 }

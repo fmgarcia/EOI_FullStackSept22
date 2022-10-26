@@ -1,13 +1,20 @@
 package poo1;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Prueba {
+	
+	static Scanner sc;
+	static List<Coche> coches = new ArrayList<Coche>();
 	
 	public static void ejemploPersonas() {
 		Persona vacia = new Persona();  // Llama al constructor sin parámetros
 		Persona fran = new Persona("Fran","García","111X","666-666-666",LocalDate.parse("1976-07-27"));
 		Persona dani = new Persona("Dani","García","222X","666-666-667",LocalDate.of(1979, 3, 26));
+		Persona joven = new Persona("Joven","García","222X","666-666-667",LocalDate.of(2020, 3, 26));
 
 		System.out.println(fran);  // Llama al método toString
 		
@@ -17,12 +24,21 @@ public class Prueba {
 		//System.out.println(vacia);
 		System.out.println("Nombre de vacia: " + vacia.getNombre());
 		System.out.println("Apellido de vacia: " + vacia.getApellido());
+		if(fran.esMayorEdad())
+			System.out.println("Fran es mayor edad");
+		else
+			System.out.println("Fran no es mayor de edad");
+		if(joven.esMayorEdad())
+			System.out.println("Joven es mayor edad");
+		else
+			System.out.println("Joven no es mayor de edad");
 	}
 	
 	public static void ejemplosCoches() {
 		
 		Coche vacio = new Coche();  // crea un coche usando el constructor vacio
-		Coche todosParametros = new Coche("0000AAA", "Seat", "Panda", 1990, 80000);
+		Coche todosParametros = new Coche("0000AAA", "Seat", "Panda", 90, -80000);
+		System.out.println(todosParametros + "\nKilómetros: " + todosParametros.getKms());
 		Coche tresParametros = new Coche("1111BBB","BMW", "Z3");
 		Coche copia = new Coche(todosParametros);  // usa el constructor de copia
 		
@@ -48,14 +64,78 @@ public class Prueba {
 		}else {
 			System.out.println("Son coches distintos");
 		}
+		System.out.println(vacio);
+		System.out.println(vacio.estado());  // estado de vacio
+		System.out.println(todosParametros.estado());
+		if(vacio.rodado()) {
+			System.out.println("El coche está en condiciones de uso");
+		} else {
+			System.out.println("El coche no ha sido probado suficientemente");
+		}
 		
 	}
 
+	
+	public static void darAlta() {
+		System.out.println("Introduzca la matricula:");
+		String matricula = sc.nextLine();
+		System.out.println("Introduzca la marca:");
+		String marca = sc.nextLine();
+		System.out.println("Introduzca el modelo:");
+		String modelo = sc.nextLine();
+		System.out.println("Introduzca el Año:");
+		int anyo = Integer.parseInt(sc.nextLine());
+		System.out.println("Introduzca los kilómetros:");
+		int kms = Integer.parseInt(sc.nextLine());
+		Coche alta = new Coche(matricula,marca,modelo,anyo,kms);
+		coches.add(alta);
+	}
+	
+	public static void menu() {
+		int opcion;
+		do {
+			System.out.println("Menú");
+			System.out.println("1. Dar de alta un coche");
+			System.out.println("2. Dar de baja un coche");
+			System.out.println("3. Modificar un coche");
+			System.out.println("4. Número de coches rodados en la empresa");
+			System.out.println("5. Mostrar coches de la empresa");
+			System.out.println("0. Salir");
+			System.out.println("Introduzca opción:");
+			opcion = Integer.parseInt(sc.nextLine());
+			switch (opcion) {
+			case 1:
+				darAlta();
+				break;
+			case 2:
+
+				break;
+			case 3:
+
+				break;
+			case 4:
+
+				break;
+			case 5:
+				coches.forEach(e->System.out.println(e));
+				break;
+			case 0:
+
+				break;
+			default:
+				break;
+			}
+		} while (opcion!=0);
+
+	}
+	
 	public static void main(String[] args) {
 		
 		//ejemploPersonas();
-		ejemplosCoches();
-		
+		//ejemplosCoches();
+		sc = new Scanner(System.in);
+		menu();
+		sc.close();
 	}
 
 }

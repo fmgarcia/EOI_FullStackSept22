@@ -1,6 +1,10 @@
 package poo1;
 
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.Period;
+import java.time.temporal.TemporalUnit;
+import java.util.Objects;
 
 
 // 1. Crear los atributos de la clase
@@ -83,6 +87,35 @@ public class Persona {
 	public String toString() {
 		return "Persona [nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", telefono=" + telefono
 				+ ", fechaNacimiento=" + fechaNacimiento + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(dni);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Persona other = (Persona) obj;
+		return Objects.equals(dni, other.dni);
+	}
+	
+	public boolean esMayorEdad() {		
+		//LocalDate edad = LocalDate.now()-this.fechaNacimiento;  // No se puede
+		//Duration edad = Duration.between(this.fechaNacimiento, LocalDate.now());  // Si quiero segundos o minutos
+		Period edad = Period.between(this.fechaNacimiento, LocalDate.now());  // Quiero años, meses o días
+		int anyos = Math.abs(edad.getYears());
+		if(anyos>=18)
+			return true;
+		else
+			return false;
+		
 	}
 	
 }
